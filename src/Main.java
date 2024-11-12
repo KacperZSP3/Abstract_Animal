@@ -21,6 +21,10 @@ abstract class Animal {
     // Metoda abstrakcyjna, którą muszą zdefiniować klasy dziedziczące.
     // Reprezentuje unikalny dźwięk, jaki wydaje zwierzę.
     abstract public void makeSound();
+
+    public void eat() {
+        System.out.println("Spożywam posiłek!");
+    }
 }
 
 class Dog extends Animal {
@@ -34,6 +38,7 @@ class Dog extends Animal {
     public void makeSound() {
         System.out.println("Hau hau!");
     }
+
 }
 
 class Cat extends Animal {
@@ -47,6 +52,11 @@ class Cat extends Animal {
     public void makeSound() {
         System.out.println("Miau!");
     }
+
+    @Override
+    public void eat() {
+        System.out.println(getName() + " spożywa posiłek!");
+    }
 }
 
 class Application {
@@ -59,9 +69,11 @@ class Application {
         System.out.println("Nazwa zwierzęcia: " + dog.getName());
         dog.describe();
         dog.makeSound();
+        dog.eat();
 
         System.out.println("Drugie zwierze: " + cat.getName());
         cat.describe();
         cat.makeSound();
+        cat.eat();
     }
 }
