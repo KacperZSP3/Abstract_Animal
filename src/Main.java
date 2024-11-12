@@ -36,19 +36,32 @@ class Dog extends Animal {
     }
 }
 
+class Cat extends Animal {
+    // Konstruktor klasy Dog, wywołujący konstruktor klasy nadrzędnej Animal
+    public Cat(String name) {
+        super(name); // Przekazanie nazwy do klasy nadrzędnej
+    }
+
+    // Implementacja metody abstrakcyjnej makeSound
+    @Override
+    public void makeSound() {
+        System.out.println("Miau!");
+    }
+}
+
 class Application {
     public static void main(String[] args) {
         // Tworzymy obiekt klasy Dog
         Dog dog = new Dog("Azor");
-        Dog dog2 = new Dog("Pulpet");
+        Cat cat = new Cat("Pulpet");
 
         // Wywołujemy metody
         System.out.println("Nazwa zwierzęcia: " + dog.getName());
         dog.describe();
         dog.makeSound();
 
-        System.out.println("Drugie zwierze: " + dog2.getName());
-        dog2.describe();
-        dog2.makeSound();
+        System.out.println("Drugie zwierze: " + cat.getName());
+        cat.describe();
+        cat.makeSound();
     }
 }
